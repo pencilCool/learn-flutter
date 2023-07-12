@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
+      // _counter without calling setStaute(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
     });
@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'You have clicked the button this many times:',
             ),
             Text(
               '$_counter',
