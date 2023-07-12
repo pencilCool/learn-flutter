@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                       MaterialPageRoute(
                       builder: (context) {
+
+                        // Todo: repalce reutn with detail
                         return Text("Detail page");
                       },
                   ),
