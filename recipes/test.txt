@@ -1,0 +1,16 @@
+Build a new app with flutter create. 
+• Use widgets to compose a screen with controls and layout.
+• Use widget parameters for styling.
+• A MaterialApp widget specifies the app, and Scaffold specifies the high-level 
+structure of a given screen.
+• State allows for interactive widgets.
+• When state changes, you usually need to hot restart the app instead of hot reload. 
+In some case, you may also need to rebuild and restart the app entirely
+
+
+使用flutter create创建一个新的应用程序。
+- 使用widget来组成一个带有控件和布局的屏幕。
+- 使用widget参数进行样式设计。
+- MaterialApp widget指定应用程序，而Scaffold指定给定屏幕的高层结构。
+- state 允许交互式widgets。
+- 当状态发生变化时，您通常需要热重启应用程序，而不是热重新加载。在某些情况下，您可能还需要完全重建和重启应用。
