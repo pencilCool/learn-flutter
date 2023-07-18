@@ -8,8 +8,19 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  // todo: add state variables and functions
+  int _selectedIndex = 0;
+  static List<Widget> pages = <Widget>[
+    //TODO: replace with Card1
+    Container(color: Colors.red),
+    Container(color: Colors.green),
+    Container(color: Colors.blue)
+  ];
 
+  void _onItemTapped(int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +31,24 @@ class HomeState extends State<Home> {
         ),
       ),
       // TODO: show selected tab
-      body: Center(
-        child: Text('Let\'s get cooking 👩‍🍳',
-            style:Theme.of(context).textTheme.headline1
-        ),
+      body: pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        // todo :set selected tab bar
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard),
+            label: 'Card',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard),
+            label: 'Car2',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard),
+            label: 'Card3',
+          ),
+        ],
       ),
-    // TODO: Add bottom navigation bar
     );
   }
 }
