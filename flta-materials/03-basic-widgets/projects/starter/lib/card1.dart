@@ -3,6 +3,7 @@ import 'fooderlich_theme.dart';
 
 class Card1 extends StatelessWidget {
   const Card1({super.key});
+
   final String category = 'Editor\'s Choice';
   final String title = 'The Art of Dough';
   final String description = 'Learn to make the perfect bread.';
@@ -13,37 +14,47 @@ class Card1 extends StatelessWidget {
     return Center(
       //TODO: card1 decorate container
       child: Container(
-        padding: const EdgeInsets.all(16),  
+        padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(
           width: 350,
           height: 450,
         ),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/mag1.png"),
-              fit: BoxFit.cover,
+            image: AssetImage("assets/mag1.png"),
+            fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         //TODO: add a stack of text
         child: Stack(
           children: [
-            Text(category,
-            style: FooderlichTheme.darkTextTheme.bodyText1,),
-            Positioned(top:20,child:  Text(title,
-              style: FooderlichTheme.darkTextTheme.headline5,),),
-
+            Text(
+              category,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+            Positioned(
+              top: 20,
+              child: Text(
+                title,
+                style: FooderlichTheme.darkTextTheme.headline5,
+              ),
+            ),
             Positioned(
               bottom: 30,
               right: 0,
-              child:Text(description,
-              style: FooderlichTheme.darkTextTheme.bodyText1,), ),
+              child: Text(
+                description,
+                style: FooderlichTheme.darkTextTheme.bodyText1,
+              ),
+            ),
             Positioned(
-              bottom: 10,
+                bottom: 10,
                 right: 0,
-                child:Text(chef,
-              style: FooderlichTheme.darkTextTheme.bodyText1,) )
-
+                child: Text(
+                  chef,
+                  style: FooderlichTheme.darkTextTheme.bodyText1,
+                ))
           ],
         ),
       ),

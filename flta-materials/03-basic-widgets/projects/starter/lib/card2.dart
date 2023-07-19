@@ -9,13 +9,11 @@ class Card2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        constraints: const BoxConstraints.expand(
-          width: 350,
-          height: 450
-        ),
+        constraints: const BoxConstraints.expand(width: 350, height: 450),
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/mag5.png"),
-          fit: BoxFit.cover,
+          image: DecorationImage(
+            image: AssetImage("assets/mag5.png"),
+            fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
@@ -32,15 +30,15 @@ class Card2 extends StatelessWidget {
             Expanded(
               child: Stack(
                 children: [
-                Positioned(
+                  Positioned(
                     bottom: 16,
                     right: 16,
                     child: Text(
                       'Recipe',
                       style: FooderlichTheme.lightTextTheme.headline1,
                     ),
-                ),
-                Positioned(
+                  ),
+                  Positioned(
                     bottom: 70,
                     left: 16,
                     child: RotatedBox(
@@ -50,8 +48,8 @@ class Card2 extends StatelessWidget {
                         style: FooderlichTheme.lightTextTheme.headline1,
                       ),
                     ),
-                ),
-              ],
+                  ),
+                ],
               ),
             ),
           ],
