@@ -19,16 +19,54 @@ class GroceryListScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = groceryItems[index];
             //TODO: wrap in a Dsimissable
-            //TODO: wrap in a inkwell
-
-            return GroceryTile(
+            return Dismissible(
               key: Key(item.id),
-              item: item,
-              onComplete: (change) {
-                if (change != null) {
-                  manager.comleteItem(index, change);
-                }
+              direction: DismissDirection.endToStart,
+              background: Container(
+                color: Colors.red,
+                alignment: Alignment.centerRight,
+                child: const Icon(
+                  Icons.delete_forever,
+                  color: Colors.white,
+                  size: 50.0,
+                ),
+              ),
+              // 9
+              onDismissed: (direction) {
+                // 10
+                manager.deleteItem(index);
+                // 11
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('${item.name} dismissed'),
+                  ),
+                );
               },
+              child: InkWell(
+                child: GroceryTile(
+                  key: Key(item.id),
+                  item: item,
+                  onComplete: (change) {
+                    if (change != null) {
+                      manager.comleteItem(index, change);
+                    }
+                  },
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GroceryItemScreen(
+                        originalItem: item,
+                        onUpdate: (item) {
+                          manager.updateItem(item, index);
+                        },
+                        onCreate: (item) {},
+                      ),
+                    ),
+                  );
+                },
+              ),
             );
           },
           separatorBuilder: (context, index) {
