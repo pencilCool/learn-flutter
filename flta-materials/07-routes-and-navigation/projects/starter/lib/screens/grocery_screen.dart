@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../models/models.dart';
 import 'screens.dart';
+import 'package:go_router/go_router.dart';
 
 class GroceryScreen extends StatelessWidget {
   const GroceryScreen({super.key});
@@ -13,6 +14,13 @@ class GroceryScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
+          context.goNamed(
+            'item',
+            pathParameters: {
+              'tab':'${FooderlichTab.toBuy}',
+              'id':'new'
+            },
+          );
           // TODO: Create New Item
         },
       ),
