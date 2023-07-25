@@ -60,7 +60,7 @@ class AppRouter {
               name: 'profile',
               path: 'profile',
               builder: (context, state) {
-                final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
+                final tab = int.tryParse(state.pathParameters['tab'] ?? '') ?? 0;
                 return ProfileScreen(
                   user: profileManager.getUser,
                   currentTab: tab,
@@ -76,13 +76,13 @@ class AppRouter {
         ],
       ),
     ],
-    redirect: (state) {
+    redirect: (context,state) {
       final loggedIn = appStateManager.isLoggedIn;
-      final loggingIn = state.subloc == '/login';
+      final loggingIn = state.matchedLocation == '/login';
       if (!loggedIn) return loggingIn ? null : '/login';
 
       final isOnboardingComplete = appStateManager.isOnboardingComplete;
-      final onboarding = state.subloc == '/onboarding';
+      final onboarding = state.matchedLocation == '/onboarding';
       if (!isOnboardingComplete) {
         return onboarding ? null : '/onboarding';
       }
